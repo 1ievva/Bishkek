@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bishkek - The Golden City of Central Asia</title>
+    <style>
+        /* Global Styles */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;600&display=swap');
+        
+        :root {
+            --gold: #D4AF37;
+            --dark-gold: #996515;
+            --ivory: #FFFFF0;
+            --emerald: #50C878;
+            --sapphire: #0F52BA;
+            --ruby: #E0115F;
+            --onyx: #0A0A0A;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--onyx);
+            color: var(--ivory);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            color: var(--gold);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        a {
+            color: var(--gold);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        a:hover {
+            color: var(--emerald);
+            text-shadow: 0 0 10px var(--emerald);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1591871937573-3d4bb8a6b429') center/cover no-repeat;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(transparent, var(--onyx));
+        }
+        
+        .header-content {
+            z-index: 1;
+            animation: fadeIn 2s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        h1 {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            letter-spacing: 3px;
+        }
+        
+        .header-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            color: var(--ivory);
+            text-shadow: 1px 1px 2px var(--onyx);
+        }
+        
+        .gold-bar {
+            height: 5px;
+            width: 100px;
+            background: var(--gold);
+            margin: 2rem auto;
+            box-shadow: 0 0 10px var(--gold);
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 0;
+            z-index: 100;
+            background: rgba(10, 10, 10, 0.8);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 2px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            font-weight: 600;
+            letter-spacing: 1px;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Main Content */
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 3rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--gold);
+            box-shadow: 0 0 10px var(--gold);
+        }
+        
+        /* About Section */
+        #about {
+            background: linear-gradient(var(--onyx), #1a1a1a);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        .about-image {
+            position: relative;
+            height: 500px;
+            perspective: 1000px;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 5px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transform-style: preserve-3d;
+            transition: transform 0.5s ease;
+        }
+        
+        .about-image:hover img {
+            transform: rotateY(10deg) rotateX(5deg) scale(1.03);
+        }
+        
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--gold);
+            border-radius: 5px;
+            z-index: -1;
+            opacity: 0.5;
+            transition: all 0.5s ease;
+        }
+        
+        .about-image:hover::before {
+            top: -15px;
+            left: -15px;
+            opacity: 0.8;
+        }
+        
+        /* Wonders Section */
+        #wonders {
+            background: url('https://images.unsplash.com/photo-1580502304784-8985b7eb7260') center/cover fixed;
+            background-attachment: fixed;
+            position: relative;
+            color: var(--ivory);
+        }
+        
+        #wonders::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+        }
+        
+        .wonders-container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .wonders-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .wonder-card {
+            background: rgba(20, 20, 20, 0.8);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            position: relative;
+        }
+        
+        .wonder-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+        
+        .wonder-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 65%, rgba(212, 175, 55, 0.1) 100%);
+            z-index: 1;
+        }
+        
+        .wonder-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .wonder-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .wonder-card:hover .wonder-img img {
+            transform: scale(1.1);
+        }
+        
+        .wonder-content {
+            padding: 20px;
+        }
+        
+        .wonder-content h3 {
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+            color: var(--gold);
+        }
+        
+        .wonder-content p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .wonder-more {
+            display: inline-block;
+            padding: 8px 15px;
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            border-radius: 30px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .wonder-more:hover {
+            background: var(--gold);
+            color: var(--onyx);
+            box-shadow: 0 0 15px var(--gold);
+        }
+        
+        /* Culture Section */
+        #culture {
+            background: linear-gradient(#1a1a1a, var(--onyx));
+        }
+        
+        .culture-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .culture-item {
+            text-align: center;
+            padding: 30px;
+            background: rgba(20, 20, 20, 0.5);
+            border-radius: 10px;
+            transition: all 0.5s ease;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        .culture-item:hover {
+            background: rgba(30, 30, 30, 0.7);
+            transform: translateY(-5px);
+            border-color: rgba(212, 175, 55, 0.3);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .culture-icon {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px var(--gold);
+        }
+        
+        .culture-item h3 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .culture-item p {
+            line-height: 1.6;
+        }
+        
+        /* Gallery Section */
+        #gallery {
+            background: var(--onyx);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 5px;
+            height: 250px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.5s ease;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        /* Visit Section */
+        #visit {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
+                        url('https://images.unsplash.com/photo-1580502304784-8985b7eb7260') center/cover fixed;
+            text-align: center;
+            color: var(--ivory);
+            position: relative;
+        }
+        
+        .visit-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .visit-content p {
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        .visit-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: var(--gold);
+            color: var(--onyx);
+            font-weight: 600;
+            border-radius: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .visit-btn:hover {
+            background: var(--dark-gold);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4), 0 0 20px var(--gold);
+        }
+        
+        /* Footer */
+        footer {
+            background: #0a0a0a;
+            padding: 50px 0 20px;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: var(--ivory);
+            transition: all 0.3s ease;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--gold);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--gold);
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--gold);
+            color: var(--onyx);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            font-size: 0.9rem;
+            color: #777;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 4rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-image {
+                order: -1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            .header-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+        
+        /* Special Effects */
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        }
+        
+        .glow {
+            text-shadow: 0 0 10px var(--gold), 0 0 20px var(--gold);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">BISHKEK</div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#wonders">Wonders</a>
+                <a href="#culture">Culture</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#visit">Visit</a>
+            </div>
+        </div>
+    </nav>
+    
+    <header>
+        <div class="header-content">
+            <h1 class="glow">BISHKEK</h1>
+            <div class="gold-bar"></div>
+            <p class="header-subtitle">Where the golden peaks of Tian Shan whisper ancient tales to modern dreamers, and the streets pulse with the vibrant soul of Central Asia</p>
+        </div>
+    </header>
+    
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">The Golden City</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Nestled at the foot of the celestial Tian Shan mountains, Bishkek emerges like a mirage of gold and emerald—a city where Soviet grandeur dances with nomadic spirit under endless Central Asian skies.</p>
+                    <p>Founded as a caravan stop on the Silk Road, Bishkek has transformed into a metropolis where time flows differently. Here, the air shimmers with the scent of samsa baking in clay ovens, while the shadows of mighty Soviet monuments stretch across manicured parks.</p>
+                    <p>By day, the city dazzles with wide boulevards lined with chestnut trees. By night, the glow of chaikhanas (tea houses) illuminates secret courtyards where poets, merchants, and travelers exchange stories that will become tomorrow's legends.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://st4.depositphotos.com/1543892/26676/i/450/depositphotos_266760750-stock-photo-panorama-bishkek-kyrgyzstan.jpg" alt="Bishkek city view">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="wonders">
+        <div class="container wonders-container">
+            <h2 class="section-title">The Seven Wonders</h2>
+            <div class="wonders-grid">
+                <div class="wonder-card">
+                    <div class="wonder-img">
+                        <img src="https://too.kg/en/wp-content/uploads/15762598709211023_e489-1024x576.jpg" alt="Ala-Too Square">
+                    </div>
+                    <div class="wonder-content">
+                        <h3>Ala-Too Square</h3>
+                        <p>The beating heart of Bishkek, where the golden statue of Manas the Warrior watches over changing of guards in a spectacle of precision and tradition.</p>
+                        <a href="#" class="wonder-more">Discover</a>
+                    </div>
+                </div>
+                
+                <div class="wonder-card">
+                    <div class="wonder-img">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Osh_bazaar_Bishkek.jpg/960px-Osh_bazaar_Bishkek.jpg" alt="Osh Bazaar">
+                    </div>
+                    <div class="wonder-content">
+                        <h3>Osh Bazaar</h3>
+                        <p>A labyrinth of colors and scents where pyramids of spices compete with mountains of melons, and the art of bargaining reaches poetic heights.</p>
+                        <a href="#" class="wonder-more">Discover</a>
+                    </div>
+                </div>
+                
+                <div class="wonder-card">
+                    <div class="wonder-img">
+                        <img src="https://24.kg/thumbnails/3b849/9d7c5/356644_w_h500_1733715726_r.jpg" alt="State History Museum">
+                    </div>
+                    <div class="wonder-content">
+                        <h3>State History Museum</h3>
+                        <p>A jewel-box of Kyrgyz heritage, its facade adorned with cosmic mosaics that tell the story of nomads who rode between earth and sky.</p>
+                        <a href="#" class="wonder-more">Discover</a>
+                    </div>
+                </div>
+                
+                <div class="wonder-card">
+                    <div class="wonder-img">
+                        <img src="https://www.advantour.com/img/kyrgyzstan/bishkek/oak-park1.jpg" alt="Oak Park">
+                    </div>
+                    <div class="wonder-content">
+                        <h3>Oak Park</h3>
+                        <p>An enchanted forest in the city center, where century-old trees shelter Soviet-era statues frozen in dramatic poses of forgotten ideologies.</p>
+                        <a href="#" class="wonder-more">Discover</a>
+                    </div>
+                </div>
+                
+                <div class="wonder-card">
+                    <div class="wonder-img">
+                        <img src="https://eurasia.travel/wp-content/uploads/2024/09/Victory-Square-5.jpg" alt="Victory Square">
+                    </div>
+                    <div class="wonder-content">
+                        <h3>Victory Square</h3>
+                        <p>Dominated by a dramatic yurt-shaped monument, this sacred space honors war heroes with an eternal flame that dances like a nomad's spirit.</p>
+                        <a href="#" class="wonder-more">Discover</a>
+                    </div>
+                </div>
+                
+                <div class="wonder-card">
+                    <div class="wonder-img">
+                        <img src="https://www.molon.de/galleries/Kyrgyzstan/Bishkek/Centre/images01/26%20Philharmonic%20hall.jpg" alt="Philharmonic Hall">
+                    </div>
+                    <div class="wonder-content">
+                        <h3>Philharmonic Hall</h3>
+                        <p>A masterpiece of Soviet modernism where the strains of komuz strings meet classical symphonies under a ceiling that seems to float like a nomad's felt roof.</p>
+                        <a href="#" class="wonder-more">Discover</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="culture">
+        <div class="container">
+            <h2 class="section-title">Living Traditions</h2>
+            <div class="culture-container">
+                <div class="culture-item">
+                    <div class="culture-icon">🏕️</div>
+                    <h3>Nomadic Soul</h3>
+                    <p>Though settled in stone, Bishkek's heart beats to the rhythm of the steppe, where hospitality is sacred and the open sky is the only ceiling one needs.</p>
+                </div>
+                
+                <div class="culture-item">
+                    <div class="culture-icon">🍵</div>
+                    <h3>Tea Ceremonies</h3>
+                    <p>In chaikhanas hidden like treasures, the pouring of tea becomes meditation, and porcelain bowls hold reflections of mountain and cloud.</p>
+                </div>
+                
+                <div class="culture-item">
+                    <div class="culture-icon">🎪</div>
+                    <h3>World Nomad Games</h3>
+                    <p>When warriors on horseback revive ancient sports, their cries echo from Bishkek across the Eurasian steppe in a celebration of nomadic heritage.</p>
+                </div>
+                
+                <div class="culture-item">
+                    <div class="culture-icon">🛡️</div>
+                    <h3>Epic of Manas</h3>
+                    <p>The world's longest epic poem lives in the voices of storytellers who can recite its 500,000 lines—a verbal tapestry woven through centuries.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="gallery">
+        <div class="container">
+            <h2 class="section-title">Golden Moments</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://s0.rbk.ru/v6_top_pics/media/img/3/66/346831233492663.jpg" alt="Bishkek street">
+                    <div class="gallery-overlay">
+                        <h3>Morning Light</h3>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://central-asia.guide/wp-content/uploads/2023/02/bishkek-bazar-1024x682.jpg" alt="Bishkek market">
+                    <div class="gallery-overlay">
+                        <h3>Market Colors</h3>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://gobishkek.com/wp-content/uploads/2024/07/bishkek1-1.jpg" alt="Bishkek mountains">
+                    <div class="gallery-overlay">
+                        <h3>Mountain Guardians</h3>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="data:image/jpeg;base64,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" alt="Bishkek sunset">
+                    <div class="gallery-overlay">
+                        <h3>Sunset Boulevard</h3>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://www.journalofnomads.com/wp-content/uploads/2019/11/Bishkek-in-winter-3-Kyrgyzstan-.jpg" alt="Bishkek winter">
+                    <div class="gallery-overlay">
+                        <h3>Winter Palace</h3>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://cdn-1.aki.kg/127/.storage/limon2/images/july2017/bf860764658479e4e26d6dc0c44372d1.jpg" alt="Bishkek night">
+                    <div class="gallery-overlay">
+                        <h3>City of Lights</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="visit">
+        <div class="container">
+            <div class="visit-content">
+                <h2 class="section-title">Your Journey Begins</h2>
+                <p>Bishkek awaits with open arms and endless stories. Whether you come for the mountain air, the golden history, or the pulse of Central Asia's most enigmatic capital, your adventure will be written in the ink of legend.</p>
+                <button class="visit-btn pulse">Plan Your Visit</button>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Bishkek</h3>
+                    <p>The golden city where East meets West, and ancient traditions dance with modern dreams.</p>
+                    <div class="social-links">
+                        <a href="#">📱</a>
+                        <a href="#">📘</a>
+                        <a href="#">📷</a>
+                        <a href="#">🐦</a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Explore</h3>
+                    <ul>
+                        <li><a href="#about">About Bishkek</a></li>
+                        <li><a href="#wonders">City Wonders</a></li>
+                        <li><a href="#culture">Culture</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Visit</h3>
+                    <ul>
+                        <li><a href="#">Travel Guide</a></li>
+                        <li><a href="#">Accommodation</a></li>
+                        <li><a href="#">Transportation</a></li>
+                        <li><a href="#">Events</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><a href="#">Tourism Office</a></li>
+                        <li><a href="#">Guided Tours</a></li>
+                        <li><a href="#">Emergency</a></li>
+                        <li><a href="#">Feedback</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Bishkek - The Golden City. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
